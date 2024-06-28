@@ -86,5 +86,4 @@ public abstract class Piece {
 
     public abstract List<Position> getPossibleMovePosition(Position srcPosition, Board board);
 
-
 }

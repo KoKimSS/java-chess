@@ -8,25 +8,40 @@ public class PointManager {
     private double whitePoint;
     private double blackPoint;
 
+    public double getWhitePoint() {
+        return whitePoint;
+    }
+
+
+    public double getBlackPoint() {
+        return blackPoint;
+    }
+
     public PointManager(Board board) {
         this.board = board;
         this.whitePoint = 0;
         this.blackPoint = 0;
     }
 
-    public String showPoint() {
-        return "White: " + whitePoint + " Black: " + blackPoint;
+    public void showPoint() {
+
+
+        System.out.println(blackPoint+" "+whitePoint);
     }
 
-    public void updatePointByPosition(Position position) {
+    public void updatePoint(Position position) {
         Piece piece = board.findPiece(position);
 
         double defaultPoint = getPiecePoint(position, piece);
+
+        System.out.println(defaultPoint);
 
         if(piece.getColor().equals(Piece.Color.WHITE))
             blackPoint += defaultPoint;
         else
             whitePoint += defaultPoint;
+
+        System.out.println("포인트 업데이트");
     }
 
     private double getPiecePoint(Position position, Piece piece) {

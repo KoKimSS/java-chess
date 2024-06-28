@@ -35,7 +35,7 @@ public enum Direction {
 
     public static List<Direction> getDirectionsByTypeAndColor(PieceType pieceType, Piece.Color color) {
         return switch (pieceType) {
-            case PAWN -> color == Piece.Color.WHITE ? List.of(NORTH) : List.of(SOUTH);
+            case PAWN -> color == Piece.Color.WHITE ? List.of(NORTH,NORTHEAST,NORTHWEST) : List.of(SOUTH,SOUTHWEST,SOUTHEAST);
             case ROOK -> List.of(NORTH, SOUTH, EAST, WEST);
             case KNIGHT -> List.of(NNE, NNW, SSE, SSW, EEN, EES, WWN, WWS);
             case BISHOP -> List.of(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST);

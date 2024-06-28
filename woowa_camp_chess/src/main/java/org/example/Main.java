@@ -2,15 +2,13 @@ package org.example;
 
 import org.example.chess.Game.GameImpl;
 import org.example.chess.board.Board;
-import org.example.chess.board.BoardView;
-import org.example.chess.board.PointManager;
 
 import java.util.Scanner;
 
 public class Main {
     static GameImpl game;
     static Board board ;
-    static PointManager pointManager;
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -26,7 +24,6 @@ public class Main {
                     board = new Board();
                     board.initialize();
                     game = new GameImpl(board);
-                    pointManager = new PointManager(board);
                     break;
 
                 case "move" :
@@ -36,7 +33,7 @@ public class Main {
                     String desPosition = scan.next();
                     try {
                         game.move(srcPosition, desPosition);
-                        BoardView.viewBoard(board,pointManager);
+                        game.getPointManager().showPoint();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

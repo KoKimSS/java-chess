@@ -12,6 +12,19 @@ abstract class Game {
         this.pointManager = new PointManager(board);
     }
 
+    public PointManager getPointManager() {
+        return pointManager;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void showGame() {
+        System.out.println(board.showBoard());
+        pointManager.showPoint();
+    }
+
     abstract double calculatePoint();
     abstract void move(String src, String dest);
 }
